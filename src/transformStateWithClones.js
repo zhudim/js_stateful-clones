@@ -1,30 +1,24 @@
 'use strict';
 
 /**
- * Implement a function that transforms a state while keeping a history of
- * states:
+ * Implement a function accepting 2 arguments `state` and `transforms` and
+ * returning an array of states of the same length as `transforms`. Each
+ * element of the resulting array has to represent the state produced by the
+ * next operation.
  *
- * The first parameter your function accepts, `state`, is an object with the
- * initial state. You must not reassign `state` to a new object or modify it
- * in any way.
+ * You must not reassign `state` to a new object or modify it in any way!
  *
- * The second parameter your function accepts, `transforms`, is an array of
- * objects having the following properties:
- * `operation`: either `addProperties`, `removeProperties`, or `clear`;
+ * `state` is an initial object.
+ *
+ * `transforms` is an array of objects having the following properties:
+ * `operation`: either `addProperties`, `removeProperties` or `clear`;
  * `properties`:
- *   if `operation` is `addProperties`, this property contains an object
+ *   - if `operation` is `addProperties`, this property contains an object
  *   with `key: value` pairs to add to the state;
- *   if `operation` is `removeProperties`, this property contains an array
- *   with the list of property names to remove from the state;
- *   if `operation is `clear`, this property is not set; you should remove
- *   all the properties from the state instead.
- *
- * You may assume that all transformations are valid (e.g., there will be no
- * request to remove a non-existent property).
- *
- * Your function must return an array of states of the same length as the input
- * list of operations. Each element of the resulting array has to represent
- * the state that the corresponding operation had produced.
+ *   - if `operation` is `removeProperties`, this property contains an array
+ *   with the list of property names to remove from the state; (Not existing
+ *   properties should be ignored)
+ *   - if `operation is `clear` you should create an empty state object
  *
  * Sample usage:
  *
