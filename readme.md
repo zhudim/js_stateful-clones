@@ -2,6 +2,7 @@
 
 **Read [the Guideline](https://github.com/mate-academy/js_task-guideline/blob/master/README.md) before start**
 
+## The Task
 Implement a function accepting 2 arguments `state` and `transforms` and returning an array of states of the same length as `transforms`. Each element of the resulting array has to represent the state produced by the next operation.
  
 You must not reassign `state` to a new object or modify it in any way!
