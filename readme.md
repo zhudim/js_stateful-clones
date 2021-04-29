@@ -4,12 +4,11 @@
 
 # Task description
 
-Implement a function accepting 2 arguments: `state` and `actions`.
-The function should return an array of the same length as `actions`.
-The array should contain all previous versions of `state`.
+Write a function `transformStateWithClones` that take a `state` object and an `actions` array
+and return an array of the same length as `actions` containing all previous versions of the `state`.
 Each element of the resulting array has to represent the state produced by the next operation.
 
-**IMPORTANT!** You must not modify the `state` object in any way!
+**IMPORTANT!** You must not modify the initial `state` object in any way!
 
 - `state` is an initial object. It should always remain the same.
 
