@@ -2,11 +2,11 @@
 
 /**
  * @param {Object} state
- * @param {Object[]} transforms
+ * @param {Object[]} actions
  *
  * @return {Object[]}
  */
-function transformStateWithClones(state, transforms) {
+function transformStateWithClones(state, actions) {
   // write code here
 }
 
