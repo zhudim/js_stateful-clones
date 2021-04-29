@@ -4,24 +4,23 @@
 
 # Task description
 
-Implement a function accepting 2 arguments: `state` and `transforms`.
-The function should return an array of the same length as `transforms`.
-The array should contain all previous versions of `state`.
+Write a function `transformStateWithClones` that take a `state` object and an `actions` array
+and return an array of the same length as `actions` containing all previous versions of the `state`.
 Each element of the resulting array has to represent the state produced by the next operation.
 
-**IMPORTANT!** You must not modify the `state` in any way!
+**IMPORTANT!** You must not modify the initial `state` object in any way!
 
 - `state` is an initial object. It should always remain the same.
 
-- `transforms` is an array of objects. Each object in this array has the two following properties:
-  - First - `operation`: either `addProperties`, `removeProperties` or `clear`;
-  - Second - `properties`:
-    - if `operation` is `addProperties`, field `properties` contains an object
+- `actions` is an array of objects. Each object in this array has the next properties:
+  - `type` contains a string: either `'addProperties'`, `'removeProperties'` or `'clear'`;
+  - The second property of each object depends on `type` and may be one of the following:
+    - if `type` is `addProperties`, the second property is `extraData`. It contains an object
       with `key: value` pairs to add to the state;
-    - if `operation` is `removeProperties`, field `properties` contains an array
+    - if `type` is `removeProperties`, the second property is `keysToRemove`. It contains an array
       with the list of property names (keys) to remove from the `state`; (Not existing
       properties should be ignored)
-    - if `operation is `clear` you should you should create an empty state object
+    - if `type` is `clear` you should create an empty state object. No second property in this case;
 
 Example of usage:
 
@@ -29,9 +28,9 @@ If `state` is {foo: 'bar', bar: 'foo'}, then
 
 ```
 transformStateWithClones(state, [
-  {operation: 'addProperties', properties: {name: 'Jim', hello: 'world'}},
-  {operation: 'removeProperties', properties: ['bar', 'hello']},
-  {operation: 'addProperties', properties: {another: 'one'}}
+  {type: 'addProperties', extraData: {name: 'Jim', hello: 'world'}},
+  {type: 'removeProperties', keysToRemove: ['bar', 'hello']},
+  {type: 'addProperties', extraData: {another: 'one'}}
 ])
 ```
 
@@ -51,12 +50,14 @@ Then after calling
 
 ```
 transformStateWithClones(state, [
-  {operation: 'addProperties', properties: {yet: 'another property'}}
-  {operation: 'clear'},
-  {operation: 'addProperties', properties: {foo: 'bar', name: 'Jim'}}
+  {type: 'addProperties', extraData: {yet: 'another property'}}
+  {type: 'clear'},
+  {type: 'addProperties', extraData: {foo: 'bar', name: 'Jim'}}
 ])
 ```
+
 we must get
+
 ```
 [
   {foo: 'bar', bar: 'foo', yet: 'another property'},
