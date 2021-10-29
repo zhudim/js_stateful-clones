@@ -4,7 +4,7 @@
 4. [DONT REPEAT YOURSELF] - you can push current state once after `switch() {}` statement.
 5. [CODE KNOWLEDGE] - use object desructuring for getting values from object.
 
-EXAMPLE
+EXAMPLE:
 ```
 const { type, extraData, keysToRemove } = action;
 ```
